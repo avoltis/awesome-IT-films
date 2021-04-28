@@ -1,12 +1,17 @@
 {
   "name": "awesome-it-films",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "List of movies, documentaries and TV series about hackers, geeks and IT in common, sorted by IMDB rating.",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "serve": "docsify serve . --open"
+    "serve": "docsify serve . --open",
+    "build-all": "npm run build-movies & npm run build-tv-series & npm run build-documentary & npm run build-badge-schema",
+    "build-movies": "node ./markdown_builder/movie_markdown_build.js",
+    "build-tv-series": "node ./markdown_builder/shows_markdown_build.js",
+    "build-documentary": "node ./markdown_builder/documentary_markdown_build.js",
+    "build-badge-schema": "node ./markdown_builder/badge_schema.js"
   },
   "repository": {
     "type": "git",
@@ -16,7 +21,9 @@
     "movies",
     "geek",
     "hacking",
-    "IT"
+    "hack",
+    "IT",
+    "computers"
   ],
   "author": "Aleksandr Filatov",
   "license": "UNLICENSED",
@@ -25,6 +32,8 @@
   },
   "homepage": "https://github.com/greybax/awesome-IT-films#readme",
   "devDependencies": {
-    "docsify": "^4.8.1"
+    "docsify": "4.12.0",
+    "imdb-api": "4.4.1",
+    "dotenv": "8.2.0"
   }
 }
